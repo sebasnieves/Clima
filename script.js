@@ -6,12 +6,12 @@ const error404 = document.querySelector(".not-found");
 const cityHide = document.querySelector(".city-hide");
 
 search.addEventListener("click", () => {
-  const APIKey = "b99f61b732262134bb20340c7130b88d";
+  const APIKey = `b99f61b732262134bb20340c7130b88d`;
   const city = document.querySelector(".search-box input").value;
 
-  if (city == "") return;
+  if (city == ``) return;
   fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}"
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`
   )
     .then((response) => response.json())
     .then((json) => {
@@ -68,10 +68,10 @@ search.addEventListener("click", () => {
             image.src = "images/cloud.png";
         }
 
-        temperature.innerHTML = "${parseInt(json.main.temp)}<span>°C</span>";
-        description.innerHTML = "${json.weather[0].description}";
-        humidity.innerHTML = "${json.main.humidity}%";
-        wind.innerHTML = "${parseInt(json.wind.speed)}Km/h";
+        temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
+        description.innerHTML = `${json.weather[0].description}`;
+        humidity.innerHTML = `${json.main.humidity}%;`;
+        wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
 
         const infoWeather = document.querySelector(" .info-weather");
         const infoHumidity = document.querySelector(" .info-humidity");
@@ -98,7 +98,7 @@ search.addEventListener("click", () => {
         const cloneInfoWeather = document.querySelectorAll(
           ".info-weather.active-clone"
         );
-        const totalCloneInfoWeather = cloneInfoWeather.lenght;
+        const totalCloneInfoWeather = cloneInfoWeather.length;
         const cloneInfoWeatherFirst = cloneInfoWeather[0];
 
         const cloneInfoHumidity = document.querySelectorAll(
